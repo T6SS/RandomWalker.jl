@@ -1,6 +1,6 @@
 # Update position of walker	
 function update(w::Walker2D, s::Step2D,width::Int=1,length::Int=1)
-    Walker2D(w.x + s.x, w.y + s.y)
+    w+s
 end
 
 
