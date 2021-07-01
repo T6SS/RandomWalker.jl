@@ -14,3 +14,5 @@ function stepping(rate)
 end
 
 Base.:+(w::Walker2D, s::Step2D) = Walker2D(w.x+s.x,w.y+s.y)
+
+Base.:+(s::Step2D,s::Step2D) = Walker2D(s.x+s.x,s.y+s.y)
