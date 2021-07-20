@@ -2,6 +2,7 @@ module RandomWalker
 
 using Reexport
 
+@reexport using Revise
 @reexport using DataFrames
 @reexport using Random
 @reexport using Distributions
@@ -13,6 +14,7 @@ export
     prob,
     multidist,
     stepping,
+    stepper,
     update,
     updateperiod,
     updatecell,
