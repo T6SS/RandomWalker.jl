@@ -94,9 +94,9 @@ function updatenoflux(w::Walker2D, s::Step2D,sₙ::Step2D, sₛ::Step2D,width::I
     
     # Check y boundary
     if pos.y > l₊ # north
-        y = update(w, sₙ)
+        y = update(w, sₙ).y
     elseif pos.y < l₋ # 
-        y = update(w, sₛ)
+        y = update(w, sₛ).y
     else
         y = pos.y
     end
