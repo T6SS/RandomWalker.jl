@@ -43,20 +43,64 @@ end
 function updatecell(w::Walker2D, s::Step2D,width::Int,length::Int)
     # x width say 0 to 100
     pos = update(w, s)
-    xstep = pos.x
-    ystep = pos.y
+    w₊ = (1/2)*width
+    w₋ = -(1/2)*width
+    l₊ = (1/2)*length
+    l₋ = -(1/2)*length
     
-    if xstep == width + 1
-        xstep = 0
-    elseif xstep == -1
-        xstep = length
-    elseif ystep == length + 1
-        ystep = length
-        xstep = width - xstep
-    elseif ystep == -1
-        ystep = 0
-        xstep = width - xstep
+    # Check x boundary
+    if pos.x > w₊
+        x = w₋
+    elseif pos.x < w₋ 
+        x = w₊
+    else
+        x = pos.x
+    end
+
+
+    # Check y boundary
+    if pos.y > l₊ # north
+        x = rand(1:width)
+        y = w.y
+    elseif pos.y < l₋ # 
+        x = rand(1:width)
+        y = w.y
+    else
+        y = pos.y
+    end
+
+
+    Walker2D(Int(x), Int(y))
+end
+
+
+# Update position of walker on periodic XY domain discretised such that 
+# width and length are integers indices 
+function updatenoflux(w::Walker2D, s::Step2D,sₙ::Step2D, sₛ::Step2D,width::Int,length::Int)
+    pos = update(w, s)
+    w₊ = (1/2)*width
+    w₋ = -(1/2)*width
+    l₊ = (1/2)*length
+    l₋ = -(1/2)*length
+    
+    # Check x boundary
+    if pos.x > w₊
+        x = w₋
+    elseif pos.x < w₋ 
+        x = w₊
+    else
+        x = pos.x
     end
     
-    Walker2D(xstep, ystep)
+    # Check y boundary
+    if pos.y > l₊ # north
+        y = update(w, sₙ)
+    elseif pos.y < l₋ # 
+        y = update(w, sₛ)
+    else
+        y = pos.y
+    end
+    
+    return Walker2D(Int(x),Int(y))    
 end
+
