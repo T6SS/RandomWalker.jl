@@ -31,7 +31,7 @@ function stepping_no_north(rate)
 end
 
 function stepping_no_south(rate)
-    steps = [(-1, 0),(1, 0),(0, 0),(0, -1),(0, 1)]
+    steps = [(-1, 0),(1, 0),(0, 0),(0, 1)]
     s = steps[findall(!iszero,rand(multidist_no_flux(rate),1))]
     return Step2D(s[1][1],s[1][2])
 end
