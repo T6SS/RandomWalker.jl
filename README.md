@@ -5,4 +5,7 @@
 
 
 ## Todo
-- [ ] Develop a workflow/pipeline of random walker
+- [ ] Develop a workflow/pipeline of RandomWalker
+- [ ] Determine control parameters for RandomWalker
+- [ ] Show metrics of a random walk in a closed boundary
+- [ ] Write methods of the random walk
