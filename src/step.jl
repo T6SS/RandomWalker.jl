@@ -18,7 +18,7 @@ multidist_no_flux(rate) = Multinomial(1,prob_no_flux(hopping_rate(rate)))
 
 
 # Stepping functions
-function stepping(rate)
+function stepping(rate::Float64)
     steps = [(-1, 0),(1, 0),(0, 0),(0, -1),(0, 1)]
     s = steps[findall(!iszero,rand(multidist(rate),1))]
     return Step2D(s[1][1],s[1][2])
@@ -39,9 +39,9 @@ end
 
 
 
-function stepper(x::Int64,r::Float64) 
+function stepper(x::Int64,rate::Float64) 
     if x == 0
-        return stepping(r)
+        return stepping(rate)
     elseif x == 1
         return stepping(0.0)
     else
@@ -50,9 +50,9 @@ function stepper(x::Int64,r::Float64)
 end
 
 
-function stepper(x::Int64,s::Step2D,r::Float64) 
+function stepper(x::Int64,s,rate::Float64) 
     if x == 0
-        return s(r)
+        return s(rate)
     elseif x == 1
         return s(0.0)
     else
