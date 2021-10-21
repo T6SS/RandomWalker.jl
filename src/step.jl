@@ -50,6 +50,15 @@ function stepper(x::Int64,r::Float64)
 end
 
 
+function stepper(x::Int64,s::Step2D,r::Float64) 
+    if x == 0
+        return s(r)
+    elseif x == 1
+        return s(0.0)
+    else
+        error("input meant to be only 0 or 1 not $(x)")
+    end
+end
 
 
 

@@ -104,3 +104,38 @@ function updatenoflux(w::Walker2D, s::Step2D,sₙ::Step2D, sₛ::Step2D,width::I
     return Walker2D(Int(x),Int(y))    
 end
 
+
+
+
+ 
+
+
+
+
+function updatenoflux(x::Int64,w::Walker2D, rate::Float64,width::Int,length::Int)
+    pos = update(w, stepper(x,stepping,rate))
+    w₊ = (1/2)*width
+    w₋ = -(1/2)*width
+    l₊ = (1/2)*length
+    l₋ = -(1/2)*length
+    
+    # Check x boundary
+    if pos.x > w₊
+        x = w₋
+    elseif pos.x < w₋ 
+        x = w₊
+    else
+        x = pos.x
+    end
+    
+    # Check y boundary
+    if pos.y > l₊ # north
+        y = update(w, stepper(x,stepping_no_north,rate)).y
+    elseif pos.y < l₋ # 
+        y = update(w, stepper(x,stepping_no_south,rate)).y
+    else
+        y = pos.y
+    end
+    
+    return Walker2D(Int(x),Int(y))    
+end
