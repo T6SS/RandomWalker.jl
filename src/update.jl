@@ -112,8 +112,8 @@ end
 
 
 
-function updatenoflux(x::Int64,w::Walker2D, rate::Float64,width::Int,length::Int)
-    pos = update(w, stepper(x,stepping,rate))
+function updatenoflux(state::Int64,w::Walker2D, rate::Float64,width::Int,length::Int)
+    pos = update(w, stepper(state,stepping,rate))
     w₊ = (1/2)*width
     w₋ = -(1/2)*width
     l₊ = (1/2)*length
@@ -130,9 +130,9 @@ function updatenoflux(x::Int64,w::Walker2D, rate::Float64,width::Int,length::Int
     
     # Check y boundary
     if pos.y > l₊ # north
-        y = update(w, stepper(x,stepping_no_north,rate)).y
+        y = update(w, stepper(state,stepping_no_north,rate)).y
     elseif pos.y < l₋ # 
-        y = update(w, stepper(x,stepping_no_south,rate)).y
+        y = update(w, stepper(state,stepping_no_south,rate)).y
     else
         y = pos.y
     end
