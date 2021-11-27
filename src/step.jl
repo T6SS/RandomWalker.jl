@@ -60,7 +60,31 @@ function stepper(x::Int64,s,rate::Float64)
     end
 end
 
+                                        
+    
+                                            
+                                        
 
 
 Base.:+(w::Walker2D, s::Step2D) = Walker2D(w.x+s.x,w.y+s.y)
 Base.:+(s₁::Step2D,s₂::Step2D) = Step2D(s₁.x+s₂.x,s₁.y+s₂.y)
+
+                                        
+                                        
+
+function step(r::Float64;Δx = 1::Real)
+    u = rand()
+    if u < r
+        s = 1
+    elseif u < 2*r
+        s = -1
+    else
+        s = 0
+    end
+    return Step1D(s*Δx)
+end
+
+
+
+Base.:+(w::Walker1D, s::Step1D) = Walker1D(w.x+s.x)
+Base.:+(s₁::Step1D,s₂::Step1D) = Step1D(s₁.x+s₂.x)
