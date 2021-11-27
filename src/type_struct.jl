@@ -3,7 +3,7 @@ abstract type AbstractWalker end
 
 # Make walker structs
 struct Walker1D{T} <: AbstractWalker
-    pos::T
+    x::T
 end
 
 struct Walker2D{T} <: AbstractWalker
