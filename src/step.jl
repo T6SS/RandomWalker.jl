@@ -67,6 +67,7 @@ end
 
 
 Base.:+(w::Walker2D, s::Step2D) = Walker2D(w.x+s.x,w.y+s.y)
+Base.:+(w1::Walker2D, w2::Walker2D) = Walker2D(w1.x+w2.x,w1.y+w2.y)
 Base.:+(s₁::Step2D,s₂::Step2D) = Step2D(s₁.x+s₂.x,s₁.y+s₂.y)
 
                                         
@@ -87,4 +88,5 @@ end
 
 
 Base.:+(w::Walker1D, s::Step1D) = Walker1D(w.x+s.x)
+Base.:+(w1::Walker1D, w2::Walker1D) = Walker1D(w1.x+w2.x)
 Base.:+(s₁::Step1D,s₂::Step1D) = Step1D(s₁.x+s₂.x)
