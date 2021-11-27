@@ -16,6 +16,10 @@ struct Step2D{T} <: AbstractWalker
     y::T
 end 
 
+struct Step1D{T} <: AbstractWalker
+    x::T
+end 
+
 struct walker_end_point_meta <: AbstractWalker
     time::Float64
     rate::Float64
