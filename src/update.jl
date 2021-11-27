@@ -1,4 +1,10 @@
 # Update position of walker	
+function update(w::Walker1D, s::Step1D;width::Int=1,length::Int=1)
+    w+s
+end
+
+
+
 function update(w::Walker2D, s::Step2D,width::Int=1,length::Int=1)
     w+s
 end
