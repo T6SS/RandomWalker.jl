@@ -17,6 +17,7 @@ export
     stepping_no_north,
     stepping_no_south,
     stepper,
+    step,
     update,
     updateperiod,
     updatenoflux,
@@ -32,6 +33,7 @@ export
     Walker1D,
     Walker2D,
     Step2D,
+    Step1D,
     walker_end_point_meta,
     WalkersData,
     AbstractWalker
