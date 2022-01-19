@@ -39,25 +39,15 @@ end
 
 
 
-function stepper(x::Int64,rate::Float64) 
-    if x == 0
-        return stepping(rate)
-    elseif x == 1
-        return stepping(0.0)
-    else
-        error("input meant to be only 0 or 1 not $(x)")
-    end
+
+function stepper(state,rate::Float64) 
+    return stepping(Bool(state)*rate)
 end
 
 
-function stepper(x::Int64,s,rate::Float64) 
-    if x == 0
-        return s(rate)
-    elseif x == 1
-        return s(0.0)
-    else
-        error("input meant to be only 0 or 1 not $(x)")
-    end
+function stepper(state,s,rate::Float64) 
+    nrate = Bool(state)*rate
+        return s(nrate)
 end
 
                                         
