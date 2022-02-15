@@ -41,12 +41,12 @@ end
 
 
 function stepper(state,rate::Float64) 
-    return stepping(Bool(state)*rate)
+    return stepping(!Bool(state)*rate)
 end
 
 
 function stepper(state,s,rate::Float64) 
-    nrate = Bool(state)*rate
+    nrate = !Bool(state)*rate
         return s(nrate)
 end
 
