@@ -81,21 +81,21 @@ using Test
 
     # (width,length) = (2,2)
     # ±1/2(width,length) = -1 ≤ x ≤ 1 ∩ -1 ≤ y ≤ 1
-    @test Walker2D(-1,0) == updateperiod(Walker2D(1,0),Step2D(1,0),width,length)
-    @test Walker2D(1,0) == updateperiod(Walker2D(-1,0),Step2D(-1,0),width,length)
-    @test Walker2D(0,-1) == updateperiod(Walker2D(0,1),Step2D(0,1),width,length)
-    @test Walker2D(0,1) == updateperiod(Walker2D(0,-1),Step2D(0,-1),width,length)
+    #@test Walker2D(-1,0) == updateperiod(Walker2D(1,0),Step2D(1,0),width,length)
+    #@test Walker2D(1,0) == updateperiod(Walker2D(-1,0),Step2D(-1,0),width,length)
+    #@test Walker2D(0,-1) == updateperiod(Walker2D(0,1),Step2D(0,1),width,length)
+    #@test Walker2D(0,1) == updateperiod(Walker2D(0,-1),Step2D(0,-1),width,length)
 
     # width,length = 2,4
     # -1 ≤ x ≤ 1 ∩ -5 ≤ y ≤ 5
     # test length updates
-    @test all([Walker2D(0,2) == updateperiod(Walker2D(0,1),Step2D(0,1),2,4) for i in 1:N])
-    @test all([Walker2D(0,-2) == updateperiod(Walker2D(0,-1),Step2D(0,-1),2,4) for i in 1:N])
-    @test all([Walker2D(0,1) == updatenoflux(state₀,Walker2D(0,1),r,width,length) for i in 1:N])
+    #@test all([Walker2D(0,2) == updateperiod(Walker2D(0,1),Step2D(0,1),2,4) for i in 1:N])
+    #@test all([Walker2D(0,-2) == updateperiod(Walker2D(0,-1),Step2D(0,-1),2,4) for i in 1:N])
+    #@test all([Walker2D(0,1) == updatenoflux(Walker2D(0,1),state₀,r,width,length) for i in 1:N])
 
-    ywalks = [k[2] for k in [RandomWalker.position(j) for j in [updatenoflux(state₁,Walker2D(0,10),r,width,length*10) for i in 1:N]]]
-    @test maximum(ywalks) == 10
-    @test minimum(ywalks) == 9
+    #ywalks = [k[2] for k in [RandomWalker.position(j) for j in [updatenoflux(state₁,Walker2D(0,10),r,width,length*10) for i in 1:N]]]
+    #@test maximum(ywalks) == 10
+    #@test minimum(ywalks) == 9
 
 
 

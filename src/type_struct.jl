@@ -20,19 +20,3 @@ struct Step1D{T} <: AbstractWalker
     x::T
 end 
 
-struct walker_end_point_meta <: AbstractWalker
-    time::Float64
-    rate::Float64
-    xₜ::Int64
-    yₜ::Int64
-end
-
-struct WalkersData <:AbstractWalker
-    nwalks::Int
-    timesteps::Int
-    rate::Float64
-    width::Int
-    length::Int
-    x::Int
-    y::Int
-end
