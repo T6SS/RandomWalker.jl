@@ -62,9 +62,9 @@ function updatenoflux(walker::Walker2D,state::Int64,rate::Float64,width::Int,len
     
     # Check y boundary
     if pos.y > l₊ # north
-        y = update(w, stepper(state,stepping_no_north,rate)).y
+        y = update(walker, stepper(state,stepping_no_north,rate)).y
     elseif pos.y < l₋ # 
-        y = update(w, stepper(state,stepping_no_south,rate)).y
+        y = update(walker, stepper(state,stepping_no_south,rate)).y
     else
         y = pos.y
     end
@@ -97,9 +97,9 @@ function updatecell(walker::Walker2D,state::Int64,rate::Float64,width::Int,lengt
     
     # Check y boundary
     if pos.y > l₊ # north
-        y = update(w, stepper(state,stepping_no_north,rate)).y
+        y = update(walker, stepper(state,stepping_no_north,rate)).y
     elseif pos.y < l₋ # 
-        y = update(w, stepper(state,stepping_no_south,rate)).y
+        y = update(walker, stepper(state,stepping_no_south,rate)).y
     else
         y = pos.y
     end
