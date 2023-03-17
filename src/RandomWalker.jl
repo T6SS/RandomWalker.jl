@@ -3,6 +3,7 @@ module RandomWalker
 using Reexport
 
 @reexport using Revise
+@reexport using Base
 @reexport using Random
 @reexport using Distributions
 
