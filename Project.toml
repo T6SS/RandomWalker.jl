@@ -1,7 +1,7 @@
 name = "RandomWalker"
 uuid = "7fedaefd-d960-4ead-b78b-a12e7d3c4dc2"
 authors = ["Jonathan Miller"]
-version = "0.1.2"
+version = "1.0.0-DEV"
 
 [deps]
 Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
