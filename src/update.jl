@@ -1,11 +1,11 @@
 # Update position of walker	
-function update(w::Walker1D, s::Step1D;width::Int=1,length::Int=1)
+function update(w::Walker1D, s::Step1D;width=1,length=1)
     w+s
 end
 
 
 
-function update(w::Walker2D, s::Step2D,width::Int=1,length::Int=1)
+function update(w::Walker2D, s::Step2D,width=1,length=1)
     w+s
 end
 
@@ -13,7 +13,7 @@ end
 # Update position of walker on periodic XY domain discretised such that 
 # width and length are integers indices 
 
-function updateperiod(walker::Walker2D,state::Int64,rate::Float64,width::Int,length::Int)
+function updateperiod(walker::Walker2D,state::Int64,rate::Float64,width,length)
     state == 1 && return walker
     pos = update(walker, stepper(state,stepping,rate))
     w₊ = (1/2)*width
@@ -43,7 +43,7 @@ function updateperiod(walker::Walker2D,state::Int64,rate::Float64,width::Int,len
 end
 
 
-function updatenoflux(walker::Walker2D,state::Int64,rate::Float64,width::Int,length::Int)
+function updatenoflux(walker::Walker2D,state::Int64,rate::Float64,width,length)
     state == 1 && return walker
     pos = update(walker, stepper(state,stepping,rate))
     w₊ = (1/2)*width
@@ -78,7 +78,7 @@ end
 # Update function for cell bonudary
 # not done
 # meant to be randomly chosen
-function updatecell(walker::Walker2D,state::Int64,rate::Float64,width::Int,length::Int)
+function updatecell(walker::Walker2D,state::Int64,rate::Float64,width,length)
     state == 1 && return walker
     pos = update(walker, stepper(state,stepping,rate))
     w₊ = (1/2)*width
